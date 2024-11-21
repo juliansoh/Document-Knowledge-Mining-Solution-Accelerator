@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: document-knowledge-mining-solution-accelerator
+metadata:
+    template: azd-init@1.11.0
+services:
+    frontend-app:
+        project: App/frontend-app
+        host: containerapp
+        language: ts
+        dist: dist
+        docker:
+            path: Dockerfile
+    microsoft-gs-dps-host:
+        project: App/backend-api/Microsoft.GS.DPS.Host
+        host: containerapp
+        language: dotnet
+    service:
+        project: App/kernel-memory/service/Service
+        host: containerapp
+        language: dotnet
